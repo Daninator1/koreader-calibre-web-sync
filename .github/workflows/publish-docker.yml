@@ -3,6 +3,7 @@ name: Publish Docker Image
 on:
   push:
     branches: ["main"]
+  workflow_dispatch: 
 
 jobs:
   build:
@@ -20,4 +21,4 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push the images to Docker Hub
-        run: docker push vincentbitter/koreader-calibre-web-sync
+        run: docker push daninator1/koreader-calibre-web-sync
