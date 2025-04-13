@@ -2,11 +2,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 COPY Sync.csproj ./
-RUN dotnet restore "Sync.csproj" --runtime linux-musl-x64
+RUN dotnet restore "Sync.csproj" --runtime linux-musl-arm64
 COPY . .
 RUN dotnet publish -c Release -o out \
-    --no-restore \  
-    --runtime linux-musl-x64 \
+    --no-restore \
+    --runtime linux-musl-arm64 \
     --self-contained true \
     /p:PublishTrimmed=true \
     /p:PublishSingleFile=true
